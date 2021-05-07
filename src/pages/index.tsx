@@ -2,11 +2,12 @@ import { GetStaticProps } from 'next';
 import { api } from '../services/api';
 import { format, parseISO, setMilliseconds } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { convertDurationToTimeString } from '../utils/convertDurationToTimeStrig';
+import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 import styles from './home.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePlayer } from '../contexts/PlayerContext';
+import Head from 'next/head'
 
 
 type Episode = {
@@ -33,6 +34,10 @@ export default function Home({ lastEpisodes, allEpisodes }: HomeProps) {
 
   return (
     <div className={styles.homepage}>
+      <Head>
+        <title>Home | Podcastr</title>
+      </Head>
+
      <section className={styles.lastEpisodes}>
       <h2>Últimos lançamentos</h2>
 
